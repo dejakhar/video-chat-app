@@ -1,6 +1,7 @@
 const credentials = require('./credentials');
 const express = require('express');
 const app = express();
+
 let server;
 let port;
 if (credentials.key && credentials.cert) {
@@ -10,7 +11,7 @@ if (credentials.key && credentials.cert) {
 } else {
   const http = require('http');
   server = http.createServer(app);
-  port = 3000;
+  port = process.env.PORT || 3000;
 }
 const io = require('socket.io')(server);
 const RoomService = require('./RoomService')(io);
