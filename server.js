@@ -18,7 +18,13 @@ const RoomService = require('./RoomService')(io);
 io.sockets.on('connection', RoomService.listen);
 io.sockets.on('error', e => console.log(e));
 app.use(express.static(__dirname + '/public'));
-app.get('*', function(req, res) {
-    res.sendFile(`${__dirname}/public/index.html`);
+
+app.get('/', function(req, res) {
+  res.sendFile(`${__dirname}/public/index.html`);
 });
+
+app.get('/:roomID', function(req, res) {
+  res.sendFile(`${__dirname}/public/App.html`);
+});
+
 server.listen(port, () => console.log(`Server is running on port ${port}`));

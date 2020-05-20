@@ -135,7 +135,7 @@
     delete peerConnections[id];
     document.querySelector("#" + id.replace(/[^a-zA-Z]+/g, "").toLowerCase()).remove();
     if (remoteVideos.querySelectorAll("video").length === 1) {
-      remoteVideos.setAttribute("class", "one remoteVideos");
+      remoteVideos.setAttribute("class", "remoteVideos");
     } else {
       remoteVideos.setAttribute("class", "remoteVideos");
     }

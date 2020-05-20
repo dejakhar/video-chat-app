@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="Video Chat.">
     <meta name="author" content="Brian Mau">
-    <link href="/css/main.css" rel="stylesheet">
   </head>
   <body>
-    <video class="localVideo" playsinline autoplay muted></video>
-    <div class="remoteVideos"></div>
-    <script src='/socket.io/socket.io.js'></script>
-    <script src="/js/video.js"></script>
+    Welcome to Video chat!
+    
+    <div>
+      <input type='text' placeholder="Room ID to create/join" id="createText" />
+      <button id='createButton'>Create/Join</button>
+    </div>
+    <script>
+      document.getElementById('createButton').addEventListener('click', function () {
+        location.replace("/" + document.getElementById('createText').value);
+      })
+    </script>
 </body>
 </html>
